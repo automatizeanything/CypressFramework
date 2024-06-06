@@ -20,13 +20,14 @@
     "npm-run-all": "^4.1.5"
   },
   "scripts": {
-    "runLogin_Headed": "npx cypress run --spec cypress/e2e/Login_Env_variables.js --headed",
-    "runTrivand_Headed": "npx cypress run --spec cypress/e2e/Login_Env_variables.js,cypress/e2e/trivandSearchReport.js --headed",
-    "runTrivand_Headless": "npx cypress run --spec cypress/e2e/Login_Env_variables.js,cypress/e2e/trivandSearchReport.js",
+    "runLogin_Headed": "npx cypress run --spec cypress/e2e/Validate_Login.js --headed",
+    "runTrivand_Headed": "npx cypress run --spec cypress/e2e/Validate_Login.js,cypress/e2e/trivandSearchReport.js --headed",
+    "runTrivand_Headless": "npx cypress run --spec cypress/e2e/Validate_Login.js",
     "generate_Mochawesome_Report": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
     "delete_AllReportJSON": "rm -rf cypress/results/mochawesome/* || true",
     "delete_Mochawesome_Report": "rm -rf mochawesome-report/assets/* || true",
     "delete_Mochawesome_ReportScreenshots": "rm -rf mochawesome-report/screenshots/* || true",
-    "runTrivandRegressionPack": "npm-run-all --continue-on-error delete_AllReportJSON delete_Mochawesome_Report delete_Mochawesome_ReportScreenshots runLogin_Headed generate_Mochawesome_Report"
+    "runTrivandRegressionPack": "npm-run-all --continue-on-error delete_AllReportJSON delete_Mochawesome_Report delete_Mochawesome_ReportScreenshots runLogin_Headed generate_Mochawesome_Report",
+    "runTrivandRegressionPackHeadless": "npm-run-all --continue-on-error delete_AllReportJSON delete_Mochawesome_Report delete_Mochawesome_ReportScreenshots runTrivand_Headless generate_Mochawesome_Report"
   }
 }
