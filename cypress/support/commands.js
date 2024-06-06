@@ -24,22 +24,25 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("login", (heading, email, password,buttonName) => {
-    cy.visit("/");
-    cy.get(".login-des").find("p").should("contain", heading);
-    cy.get('input[placeholder="Email"]').type(email);
-    cy.get('input[placeholder="Password"]').type(password);
-    cy.get('[label="LOGIN"]').click();
-    cy.WaitForServiceCallToComplete("user","POST")
-    cy.get('[role="menuitem"]').find("span").as("HomeButton");
-    cy.get("@HomeButton").should("contain", "Home");
-  });
-   
-  Cypress.Commands.add("WaitForServiceCallToComplete",(url,methodType)=>
-      {
-    cy.intercept({
-     url: "**/"+url+"/**",
-     method: methodType,
-    }).as("PageLoad");
-    cy.wait("@PageLoad");
-  })
+Cypress.Commands.add("NavigateToBasePage", () => {
+  cy.visit("/");
+});
+
+Cypress.Commands.add("WaitForServiceCallToComplete", (url, methodType) => {
+  cy.intercept({
+    url: "**/" + url + "/**",
+    method: methodType,
+  }).as("PageLoad");
+  cy.wait("@PageLoad");
+});
+
+Cypress.Commands.add("ClickOnAnyTab", (buttonName) => {
+  cy.get("a[routerlinkactive='active-menuitem-routerlink']")
+    .find("span")
+    .as("TabItems");
+  cy.get("@TabItems").contains(buttonName).click();
+});
+
+Cypress.Commands.add("ClickOnAnyButton", (buttonName) => {
+  cy.visit("/");
+});
