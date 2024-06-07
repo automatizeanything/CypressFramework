@@ -43,6 +43,35 @@ Cypress.Commands.add("ClickOnAnyTab", (buttonName) => {
   cy.get("@TabItems").contains(buttonName).click();
 });
 
-Cypress.Commands.add("ClickOnAnyButton", (buttonName) => {
-  cy.visit("/");
+Cypress.Commands.add("ClickOnAnySubTab", (buttonName) => {
+  cy.get("div[class='layout-menu-container'] a span[class*='layout-menuitem']").as("SubMenu");
+  cy.get("@SubMenu").contains(buttonName).click();
 });
+
+Cypress.Commands.add("ClickOnSpanButton", (buttonName) => {
+  cy.get("span[class*='button-label']").as("button");
+  cy.get("@button").contains(buttonName).click();
+});
+
+
+Cypress.Commands.add('typeAndStoreValue', (locator, data, alias) => {
+  cy.get(locator).type(data).invoke('val').then((value) => {
+    cy.wrap(value).as(alias);
+  });
+});
+
+
+Cypress.Commands.add('setValue', (key, value) => {
+  cy.wrap(value).as(key);
+});
+
+Cypress.Commands.add('getValue', (key) => {
+  cy.get(`@${key}`);
+});
+
+Cypress.Commands.add("selectValueFromDropDown", (locator,dropDownValue) => {
+  cy.get("span[class*='button-label']").as("button");
+  cy.get("@button").contains(buttonName).click();
+});
+
+
