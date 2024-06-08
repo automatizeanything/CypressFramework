@@ -74,4 +74,10 @@ Cypress.Commands.add("selectValueFromDropDown", (locator,dropDownValue) => {
   cy.get("@button").contains(buttonName).click();
 });
 
+Cypress.Commands.add('searchElementInList', (getElementChain, targetText) => {
+  const items = [];
+  getElementChain.each(($li) => items.push($li.text()));
+  cy.wrap(items).should('contains',targetText);
+});
+
 

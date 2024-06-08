@@ -29,6 +29,8 @@ describe("Validating All Manufacturer Flows", () => {
     company_Details_Page_PO.enterVehicleModelDetails();
     cy.ClickOnSpanButton("Add");
     cy.ClickOnSpanButton("Save");
+    company_Details_Page_PO.searchForCompaniesAssertAndClick();
+    company_Details_Page_PO.verifyBasicDetailsOfCompany();
     cy.pause();
   });
 });
