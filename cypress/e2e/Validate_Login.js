@@ -10,6 +10,6 @@ describe("Validate the Login flow", () => {
     cy.NavigateToBasePage();
     login_Page_PO.performLogin("Welcome to Vision!",Cypress.env("email"),Cypress.env("password"),"Home");
     home_Page_PO.clickOnAdminTab("Administration");
-    cy.pause();
+    //cy.pause();
   });
 });

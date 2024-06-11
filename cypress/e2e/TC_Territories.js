@@ -22,8 +22,8 @@ describe("Validating Territory Flow", () => {
 
   it("Add a New Territory with Handover Points", () => {
     territories_PO.clickOnAddNewTerritoryButton();
-    territories_PO.enterNewTerritoryAndHandOverPointDetails("Mumbai","Delhi");
-    territories_PO.verifyCreatedTerritory("Mumbai")
-    cy.pause();
+    territories_PO.enterNewTerritoryAndHandOverPointDetails("Mumbai11","Delhi11");
+    territories_PO.verifyCreatedTerritory("Mumbai11")
+    //cy.pause();
   });
 });
