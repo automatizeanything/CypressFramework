@@ -31,6 +31,6 @@ describe("Validating All Manufacturer Flows", () => {
     cy.ClickOnSpanButton("Save");
     company_Details_Page_PO.searchForCompaniesAssertAndClick();
     company_Details_Page_PO.verifyBasicDetailsOfCompany();
-    cy.pause();
+    //cy.pause();
   });
 });
