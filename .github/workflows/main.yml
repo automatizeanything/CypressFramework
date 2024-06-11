@@ -1,0 +1,32 @@
+name: Manual Cypress CI
+
+# Trigger this workflow manually
+on:
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        containers: [3] # Adjust the number of containers based on the parallelization required
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Cypress
+        run: npx cypress install
+
+      - name: Run Cypress tests
+        run: npm run test:ci -- --parallel --record --group ${{ matrix.containers }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
