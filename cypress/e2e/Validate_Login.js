@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import Login_Page_PO from '../support/PageObjects/login_Page_PO.js';
-import Home_Page_PO from '../support/PageObjects/Home_Page_PO.js';
+import Login_Page_PO from '/cypress/support/PageObjects/login_Page_PO.js';
+import Home_Page_PO from '/cypress/support/PageObjects/Home_Page_PO.js';
 import "cypress-wait-until";
 
 describe("Validate the Login flow", () => {
