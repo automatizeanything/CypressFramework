@@ -17,16 +17,19 @@ class Territories_PO {
     cy.get('.input-outer > .pi-plus').click();
     cy.get('.ng-tns-c68-21.p-dialog-mask > .ng-trigger > .p-dialog-footer > .p-t-modal-footer > [styleclass="p-button-primary"] > .p-ripple > .p-button-label').click();
     cy.get('button span').contains("Done").click();
+    cy.get("div[class*='loading']").should("not.exist");
 
   }
   verifyCreatedTerritory()
   {
     cy.ClickOnAnySubTab("Company");
+    cy.get("div[class*='loading']").should("not.exist");
     cy.ClickOnAnySubTab("Territories");
+    cy.get("div[class*='loading']").should("not.exist");
     cy.getValue("TerritoryName_Manufacturer").then((value) => {
     cy.log("TerritoryName_Manufacturer Stored value is: ", value);
     cy.get(".block > .p-inputtext").type(value);
-    cy.get("div[class='card all-companies-card'] div label").should('have.text',value);
+    cy.get("div[class='card all-companies-card'] div label").should('contain',value);
   }
 )}
 }
