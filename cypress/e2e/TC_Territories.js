@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import Login_Page_PO from "/cypress/support/PageObjects/login_Page_PO.js";
+import Login_Page_PO from "/cypress/support/PageObjects/Login_Page_PO.js";
 import Home_Page_PO from "/cypress/support/PageObjects/Home_Page_PO.js";
 import Territories_PO from "/cypress/support/PageObjects/Territories_PO.js";
 import "cypress-wait-until";
