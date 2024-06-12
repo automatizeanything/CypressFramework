@@ -2,7 +2,7 @@
 import Login_Page_PO from "/cypress/support/PageObjects/Login_Page_PO.js";
 import Home_Page_PO from "/cypress/support/PageObjects/Home_Page_PO.js";
 import Territories_PO from "/cypress/support/PageObjects/Territories_PO.js";
-import Company_Details_Page_PO from "cypress/support/PageObjects/Company_Details_Page_PO.js";
+import Company_Details_Page_PO from "/cypress/support/PageObjects/Company_Details_Page_PO.js";
 import "cypress-wait-until";
 
 describe("Validating All Manufacturer Flows", () => {
