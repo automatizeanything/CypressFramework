@@ -25,6 +25,8 @@ jobs:
 
       - name: Install Cypress
         run: npx cypress install
+      - name: List files in support/PageObjects
+        run: ls -l cypress/support/PageObjects/
 
       - name: Run Cypress tests
         run: npm run test:ci -- --parallel --record --group ${{ matrix.containers }}
