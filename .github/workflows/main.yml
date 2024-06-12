@@ -28,11 +28,11 @@ jobs:
    
       - name: Run Cypress tests
         run: npm run test:ci -- --parallel --record --group ${{ matrix.containers }}
-        
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
       - name: Upload MochaAwesome report
         uses: actions/upload-artifact@v3
         with:
           name: mochawesome-report
           path: ./mochawesome-report
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
